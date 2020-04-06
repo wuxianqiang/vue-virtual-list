@@ -1,29 +1,13 @@
-# my-app
+浏览器内核（渲染进程）
 
-## Project setup
-```
-yarn install
-```
+一个进程包含多个线程
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+渲染进程里面有
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+GUI渲染线程
+JS引擎线程
+事件触发线程
+定时触发器线程
+异步http请求线程
 
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+JS单线程指的是主线程是单线程，在执行的过程中是可以创建额外的线程，如web worker

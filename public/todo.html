@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script>
+    let timer = Date.now()
+    let total = 100;
+    let index = 0;
+    function load() {
+      index += 50;
+      if (index <= total) {
+        requestAnimationFrame(() => { // 分片渲染，先渲染50个，等UI渲染完成之后，再渲染50个
+          let fragment = document.createDocumentFragment()
+          for (let i = 0; i < 50; i++) {
+            let li = document.createElement('li')
+            li.innerHTML = i++
+            fragment.appendChild(li)
+          }
+          app.appendChild(li)
+          load()
+        });
+      }
+    }
+    load()
+  </script>
+</body>
+
+</html>
